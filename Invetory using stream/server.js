@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
   if (req.url.startsWith("/images/")) {
     return serveStaticFile(
       path.join(__dirname, "public", req.url),
-      "image/jpeg",
+      "image/jpg",
       res
     );
   }
@@ -114,19 +114,26 @@ const server = http.createServer((req, res) => {
   }
 
 
-  if (req.url === "/astronomy/download") {
+ if (req.url === "/astronomy/download") {
 
-    res.writeHead(200, {
-      "Content-Disposition": "attachment; filename=astronomy.jpg",
-      "Content-Type": "image/jpeg"
-    });
+  const filePath = path.join(__dirname, "public/images/astronomy.jpg");
 
-    return serveStaticFile(
-      path.join(__dirname, "public/images/astronomy.jpg"),
-      "image/jpeg",
-      res
-    );
-  }
+  res.writeHead(200, {
+    "Content-Disposition": "attachment; filename=astronomy.jpg",
+    "Content-Type": "image/jpg"
+  });
+
+  const stream = fs.createReadStream(filePath);
+  stream.pipe(res);
+
+  stream.on("error", () => {
+    res.writeHead(404);
+    res.end("File not found");
+  });
+
+  return; 
+}
+
 
 
   serveStaticFile(
