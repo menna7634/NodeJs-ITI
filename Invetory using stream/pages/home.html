@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="../public/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Inventory Management</h1>
+</header>
+
+<div class="container">
+  <h2>Inventory List</h2>
+  <div id="inventory"></div>
+</div>
+
+<script>
+fetch("/inventory")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("inventory");
+
+    data.items.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <h3>${item.itemName}</h3>
+        <p>Quantity: ${item.quantity}</p>
+      `;
+      container.appendChild(div);
+    });
+  });
+</script>
+
+</body>
+</html>
