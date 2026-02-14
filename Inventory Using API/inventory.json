@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": 2,
+      "itemName": "Mobile",
+      "quantity": 1,
+      "category": "General"
+    },
+    {
+      "id": 3,
+      "itemName": "Labtop",
+      "quantity": 8,
+      "category": "General"
+    },
+    {
+      "id": 4,
+      "itemName": "Books",
+      "quantity": 12,
+      "category": "General"
+    },
+    {
+      "id": 5,
+      "itemName": "Games",
+      "quantity": 99,
+      "category": "General"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f6fa;
+}
+
+
+.header {
+  background: #2c3e50;
+  padding: 15px 30px;
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+
+.container {
+  padding: 30px;
+}
+
+
+.summary {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  min-width: 160px;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.total { background: #34495e; }
+.quantity { background: #2980b9; }
+.available { background: #27ae60; }
+.low { background: #f39c12; }
+.out { background: #e74c3c; }
+
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product-table th {
+  background: #2c3e50;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.product-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.available { background: #27ae60; }
+.low-stock { background: #f39c12; }
+.out-of-stock { background: #e74c3c; }
+
+.empty {
+  font-style: italic;
+  color: #888;
+}

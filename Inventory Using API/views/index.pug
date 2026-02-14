@@ -1,0 +1,64 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Inventory Dashboard
+    link(rel="stylesheet" href="/style.css")
+
+  body
+
+    header.header
+      .header-content
+        img.logo(src="/ballon.jpg" alt="ballon image")
+        h1 Inventory Dashboard
+
+    main.container
+
+      section.summary
+        .card.total
+          h3 Total Products
+          p= totalItems
+
+        .card.quantity
+          h3 Total Quantity
+          p= totalQuantity
+
+        .card.available
+          h3 Available
+          p= availableCount
+
+        .card.low
+          h3 Low Stock
+          p= lowStockCount
+
+        .card.out
+          h3 Out of Stock
+          p= outOfStockCount
+
+      section.products
+        h2 Product List
+
+        if products.length === 0
+          p.empty No products available.
+
+        else
+          table.product-table
+            thead
+              tr
+                th ID
+                th Name
+                th Category
+                th Quantity
+                th Status
+
+            tbody
+              each product in products
+                tr
+                  td= product.id
+                  td= product.itemName
+                  td= product.category
+                  td= product.quantity
+                  td
+                    span(class=`badge ${product.status.replace(/\s/g,'-')}`)
+                      = product.status
